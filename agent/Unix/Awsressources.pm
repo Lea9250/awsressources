@@ -60,8 +60,7 @@ sub awsressources_inventory_handler {
         $result = decode_json $result;
 
         if (@{$result}) {
-            $logger->debug("Generating xml data for region : $region");         
-            print Dumper($result);             
+            $logger->debug("Generating xml data for region : $region");       
             # instance level
             foreach my $instance (@{$result}) {
                 push @{$common->{xmltags}->{AWS_INSTANCES}},
@@ -76,7 +75,7 @@ sub awsressources_inventory_handler {
                     KEY_NAME => [$instance->{Key}],
                     IMAGE_ID => [$instance->{ImageId}],
                     # AMI_LAUNCH_INDEX => [$instance->{AmiLaunchIndex}],
-                    MONITORING => [$instance->{Monitoring}],
+                    MONITORING => [$instance->{Monitoring}{State}],
                     # STATE_CODE => [$instance->{State}{Code}],
                     STATE_NAME => [$instance->{Status}],
                     STATE_REASON => [$instance->{StatusReason}],

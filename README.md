@@ -14,7 +14,7 @@
 
 ## Description
 
-This plugin will retrieve Amazon AWS EC2 instances details using the AWS CLI.
+This plugin will retrieve Amazon AWS EC2 instances details using the describe-instances command of the AWS CLI.
 
 ## Prerequisites
 
